@@ -3,6 +3,10 @@ import urllib.request
 from urllib.request import urlopen
 import csv
 
+
+
+
+
 def getShows(artistPage):
 	shows = [0] * 40
 	#soup = bs.BeautifulSoup(artistPage, 'lxml')
@@ -19,6 +23,7 @@ def getShows(artistPage):
 	return shows
 
 def findArtists(showPage):
+	nodeCount = 0
 	artists = [0] * 10
 	showPage = "https://www.smallslive.com" + showPage 
 	soup = bs.BeautifulSoup(urlopen(showPage), 'lxml')
@@ -30,6 +35,7 @@ def findArtists(showPage):
 			#print(thisLink)
 			artists[i] = thisLink
 			i = i + 1
+			
 	return artists 
 
 #gets unique artist number from artist page
@@ -38,7 +44,7 @@ def getArtistNum(artistLink):
 	artistId= splitLink[4].split("-")
 	return artistId[0]
 #parses the artist's name from their page url
-def getArtistname(artistLink):
+def getArtistName(artistLink):
 	splitLink = artistLink.split("/")
 	artistId= splitLink[4].split("-")
 	return artistId[1] + " " + artistId[2]
@@ -47,26 +53,57 @@ def getArtistname(artistLink):
 def getArtistLink(artistNum):
 	return "https://www.smallslive.com/search/event/?artist=" + artistNum
 
+def run (artistLink):
+	nodes = [[0 for x in range(70)] for y in range(70)]
+	nodeCount = 0
+	link = getArtistLink(getArtistNum(artistLink))
+	#creates an array of shows the artist was recently in 
+	shows = getShows(link)
+
+	for i in range(len(shows)):
+		if shows[i] is 0:
+			pass
+		else:
+			nodes[i] = findArtists(shows[i])
+	print(nodes)
+	nodes2 = [0] * 200
+
+	for k in range(len(nodes)):
+		for j in range (len(nodes[0])):
+			
+			if nodes[k][j] is not 0:
+				artistAtHand = getArtistName("https://www.smallslive.com" + nodes[k][j]) 
+
+				if artistAtHand not in nodes2:
+					nodes2[nodeCount]  = artistAtHand
+					nodeCount = nodeCount + 1
+			run("https://www.smallslive.com" + nodes[k][j])
+				
+	print(nodes2)
+
+nodes = [[0 for x in range(3)] for y in range(70)]
+print(nodes)
+
+	# if getArtistName("https://www.smallslive.com" + thisLink) not in nodes:
+	# 				nodes[nodeCount] = getArtistName("https://www.smallslive.com" + thisLink)
+	# 				nodeCount = nodeCount + 1
+
+run("https://www.smallslive.com/artists/458-aaron-parks/")
 
 
+# nodes = [0] * 200
+# nodeCount = 0
 
 
+# arr = getShows("https://www.smallslive.com/artists/458-aaron-parks/")
+# print (arr)
+# for i in range(len(arr)):
+# 	if arr[i] is 0:
+# 		pass
+# 	else:
+# 		print (findArtists(arr[i]))
 
-
-
-
-
-
-
-arr = getShows("https://www.smallslive.com/artists/458-aaron-parks/")
-print (arr)
-for i in range(len(arr)):
-	if arr[i] is 0:
-		pass
-	else:
-		print (findArtists(arr[i]))
-
-
+# print(nodes)
 
 
 
