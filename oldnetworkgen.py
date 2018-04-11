@@ -52,7 +52,7 @@ def getArtistLink(artistNum):
 
 def run (artistLink):
 	nodes = [[0 for x in range(70)] for y in range(70)]
-	
+	nodeCount = 0
 	link = getArtistLink(getArtistNum(artistLink))
 	#creates an array of shows the artist was recently in 
 	shows = getShows(link)
@@ -63,13 +63,13 @@ def run (artistLink):
 		else:
 			nodes[i] = findArtists(shows[i])
 	print(nodes)
-	
+	nodes2 = [0] * 200
 
-	print(ppl)
+	ppl = {getArtistName(artistLink) : 0}
 	edges = {}
 
 	for k in range(len(nodes)):
-		for j in range (len(nodes[k])):
+		for j in range (len(nodes[0])):
 			
 			if nodes[k][j] is not 0:
 				artistAtHand = getArtistName("https://www.smallslive.com" + nodes[k][j]) 
@@ -79,14 +79,18 @@ def run (artistLink):
 				else:
 					weight = ppl[artistAtHand]
 					ppl[artistAtHand] = weight + 1
-				
+
+				if artistAtHand not in nodes2:
+					nodes2[nodeCount]  = artistAtHand
+					nodeCount = nodeCount + 1
+			#run("https://www.smallslive.com" + nodes[k][j])
 	print(ppl)			
-	
+	print(nodes2)
 
 nodes = [[0 for x in range(3)] for y in range(70)]
 print(nodes)
 
-ppl = {getArtistName("https://www.smallslive.com/artists/458-aaron-parks/") : 0}	
+	
 run("https://www.smallslive.com/artists/458-aaron-parks/")
 
 
