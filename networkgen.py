@@ -99,7 +99,7 @@ def run (artistLink):
 	print(ppl)
 	global recurseCount	
 	for q in list(ppl):
-		if q not in visitedPpl and recurseCount < 20:
+		if q not in visitedPpl and recurseCount < 10:
 			recurseCount = recurseCount + 1
 			print("key" + q)
 			run(q)									
@@ -111,8 +111,8 @@ visitedPpl= {}
 visitedShows = {}
 edges = {}
 recurseCount = 0
-ppl = {"https://www.smallslive.com/artists/728-justin-brown/" : 0}	
-run("https://www.smallslive.com/artists/728-justin-brown/")
+ppl = {"https://www.smallslive.com/artists/456-joe-sanders/" : 0}	
+run("https://www.smallslive.com/artists/456-joe-sanders/")
 #https://www.smallslive.com/artists/317-will-vinson/
 for i in list(ppl):
 	weight = ppl[i]
