@@ -10,6 +10,6 @@ a starting point, finds the most recent (about 10) shows they played at smalls, 
 Given the node/edge list from the script, I created a visualization of this network data with the javascript library [D3.js](d3js.org).
 
 ### Examples
-![](screenshots/ex1.png)
-![](screenshots/ex2.png)
-![](screenshots/ex3.png)
+![](Screenshots/ex1.png)
+![](Screenshots/ex2.png)
+![](Screenshots/ex3.png)
