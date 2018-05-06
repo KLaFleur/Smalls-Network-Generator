@@ -75,31 +75,51 @@ def run (artistLink):
 		for j in range (len(nodes[k]) - 1):
 			
 			if nodes[k][j] is not 0:
-				artistAtHand = getArtistName("https://www.smallslive.com" + nodes[k][j]) 
+				artistAtHand = getArtistName("https://www.smallslive.com" + nodes[k][j])
+				g = j + 1 
 
-				#this block checks if the edge at hand (artist at hand and the next in the list) is in the edgelist already.
-				#If it is, it increases the edges weight. If not, it creates one with weight 1
-				if nodes[k][j+1] is not 0:
-					nextArtist = getArtistName("https://www.smallslive.com" + nodes[k][j + 1])
-					if (artistAtHand + "," + nextArtist) in edges:
-						edges[artistAtHand + "," + nextArtist] = edges[artistAtHand + "," + nextArtist] + 1
-					elif (nodes[k][j+1] + "," + nodes[k][j]) in edges:
-						edges[nextArtist + "," + artistAtHand] = edges[nextArtist + "," + artistAtHand] + 1
+				while g < len(nodes[k]):
+					
+					if nodes[k][g] is not 0:
+						nextArtist = getArtistName("https://www.smallslive.com" + nodes[k][g])
+						
+						if (artistAtHand + "," + nextArtist) in edges:
+							edges[artistAtHand + "," + nextArtist] = edges[artistAtHand + "," + nextArtist] + 1
+						elif (nextArtist + "," + artistAtHand) in edges:
+							edges[nextArtist + "," + artistAtHand] = edges[nextArtist + "," + artistAtHand] + 1
+						else:
+							edges[artistAtHand + "," + nextArtist] = 1
 					else:
-						edges[artistAtHand + "," + nextArtist] = 1
+						g = len(nodes[k])
 
-				#this block checks if the artist at hand is in the list of people.
-				#if they are, 
-				if ("https://www.smallslive.com" + nodes[k][j]) not in ppl:
-					ppl[ ("https://www.smallslive.com" + nodes[k][j])] = 1
-				else:
-					weight = ppl[ ("https://www.smallslive.com" + nodes[k][j])]
-					ppl[ ("https://www.smallslive.com" + nodes[k][j])] = weight + 1
+					#checks if the current artist is in the list of artists 
+					if ("https://www.smallslive.com" + nodes[k][j]) not in ppl:
+				 		ppl[ ("https://www.smallslive.com" + nodes[k][j])] = 1
+					else:
+						weight = ppl[ ("https://www.smallslive.com" + nodes[k][j])]
+						ppl[("https://www.smallslive.com" + nodes[k][j])] = weight + 1
+						
+
+
+					g = g + 1
+
+
+
+
+
+
+
+
+
+
+
+
+
 	print(edges)
 	print(ppl)
 	global recurseCount	
 	for q in list(ppl):
-		if q not in visitedPpl and recurseCount < 10:
+		if q not in visitedPpl and recurseCount < 17:
 			recurseCount = recurseCount + 1
 			print("key" + q)
 			run(q)									
@@ -111,9 +131,10 @@ visitedPpl= {}
 visitedShows = {}
 edges = {}
 recurseCount = 0
-ppl = {"https://www.smallslive.com/artists/456-joe-sanders/" : 0}	
-run("https://www.smallslive.com/artists/456-joe-sanders/")
+ppl = {"https://www.smallslive.com/artists/458-aaron-parks/" : 0}	
+run("https://www.smallslive.com/artists/458-aaron-parks/")
 #https://www.smallslive.com/artists/317-will-vinson/
+#https://www.smallslive.com/artists/728-justin-brown/
 for i in list(ppl):
 	weight = ppl[i]
 	del ppl[i]
