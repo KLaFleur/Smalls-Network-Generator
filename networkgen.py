@@ -118,8 +118,9 @@ def run (artistLink):
 	print(edges)
 	print(ppl)
 	global recurseCount	
+	iterations = 6
 	for q in list(ppl):
-		if q not in visitedPpl and recurseCount < 3:
+		if q not in visitedPpl and recurseCount < iterations:
 			recurseCount = recurseCount + 1
 			print("key" + q)
 			run(q)									
