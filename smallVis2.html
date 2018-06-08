@@ -26,8 +26,8 @@
       
       Promise
         .all([
-          PromiseWrapper("../data/nodeList.csv"),
-          PromiseWrapper("../data/edgeList.csv")
+          PromiseWrapper("../nodeList.csv"),
+          PromiseWrapper("../edgeList.csv")
         ])
         .then(resolve => {
           createForceLayout(resolve[0], resolve[1]);
