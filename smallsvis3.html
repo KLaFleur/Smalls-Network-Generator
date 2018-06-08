@@ -22,7 +22,7 @@
     </div>
     <script>
     /*  var roleScale = d3.scaleOrdinal()
-        .domain(["contractor", "employee", "manager"])
+        .domain(["piano", "bass", "drums"])
         .range(["#75739F", "#41A368", "#FE9922"]);*/
       
       var PromiseWrapper = d => new Promise(resolve => d3.csv(d, p => resolve(p)));
@@ -70,7 +70,7 @@
         var linkForce = d3.forceLink().strength(d => d.weight * .1);
         
         var simulation = d3.forceSimulation()
-          .force("charge", d3.forceManyBody().strength(-3550))
+          .force("charge", d3.forceManyBody().strength(-3850))
           .force("x", d3.forceX(400))
           .force("y", d3.forceY(250))
           .force("link", linkForce)
@@ -85,12 +85,12 @@
           .append("line")
             .attr("class", "link")
             .style("opacity", .5)
-            .style("stroke-width", d => d.weight * 2);
+            .style("stroke-width", d => d.weight * 1.65);
         
         d3.selectAll("line").attr("marker-end", "url(#Triangle)");
 
         //textSizeRamp will take in a nodes degree centrality as input, and return a proportial text size, so that very important nodes have larger text
-        var textSizeRamp = d3.scaleLinear().domain([0, 160]).range([20, 46]);
+        
 
         var nodeEnter = svg.selectAll("g.node")  //d3.select("svg")
           .data(nodes, d => d.id)
@@ -98,11 +98,12 @@
           .append("g")
             .attr("class", "node");
         nodeEnter.append("circle")
-            .attr("r", d => d.degreeCentrality * 1.4)
+            .attr("r", d => d.degreeCentrality * 1.7)
             .style("fill", "blue")
             .style("opacity", .4);
             //.style("fill", d => roleScale(d.role));
-             
+        
+        var textSizeRamp = d3.scaleLinear().domain([0, 160]).range([20, 46]);
         // Trying to only get text to appear over more important nodes to reduce clutter
         //having a tough time refering to the individual node
         nodeEnter.append("text")
