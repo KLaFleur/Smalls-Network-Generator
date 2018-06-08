@@ -11,6 +11,8 @@ Given the node/edge list from the script, I make visualizations of this network 
 I wanted a new window into the current Jazz scene in new york. This project has led to me find a bunch of recordings and artists I would not have easily found otherwise.
 
 ### Examples
+[https://bl.ocks.org/klafleur](https://bl.ocks.org/klafleur)
+
 ![](Screenshots/ex5.png)
 ![](Screenshots/ex1.png)
 ![](Screenshots/ex4.png)
