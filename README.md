@@ -15,6 +15,8 @@ I wanted a new window into the current Jazz scene in new york. This project has 
 
 ![](Screenshots/ex5.png)
 ![](Screenshots/ex1.png)
+![](Screenshots/ex6.png)
 ![](Screenshots/ex4.png)
 ![](Screenshots/ex2.png)
+[](Screenshots/ex7.png)
 ![](Screenshots/ex3.png)
