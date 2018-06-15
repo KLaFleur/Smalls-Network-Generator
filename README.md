@@ -14,6 +14,7 @@ I wanted a new window into the current Jazz scene in new york. This project has 
 [bl.ocks.org/klafleur](https://bl.ocks.org/klafleur)
 
 ![](Screenshots/ex5.png)
+![](Screenshots/ex8.png)
 ![](Screenshots/ex1.png)
 ![](Screenshots/ex6.png)
 ![](Screenshots/ex4.png)
