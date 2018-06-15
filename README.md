@@ -8,7 +8,7 @@ a starting point, finds (all by web scraping) the most recent (about 10) shows t
 ## Visualizing the network 
 Given the node/edge list from the script, I make visualizations of this network data with the javascript library [D3.js](d3js.org). Nodes with more connections have bigger bubbles and tend to be closer to the center of the network. The thicker the link between 2 artists nodes, the more shows they've played together on. A few visualizations with helpful zoom and pan options can be found [on my bl.ocks account](https://bl.ocks.org/klafleur).
 ## Why?
-I wanted a new window into the current Jazz scene in new york. This project has led to me find a bunch of recordings and artists I would not have easily found otherwise.
+I wanted a new window into the current Jazz scene in new york. This project has led to me find a bunch of recordings and artists I would not have easily found otherwise. This is my first D3 project, and it has been a great way to get to know the conventions of the library.
 
 ## Examples
 [bl.ocks.org/klafleur](https://bl.ocks.org/klafleur)
