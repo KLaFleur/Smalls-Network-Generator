@@ -12,10 +12,14 @@ I wanted a new window into the current Jazz scene in new york. This project has 
 
 ## Examples
 ### Interactive
-[bl.ocks.org/klafleur](https://bl.ocks.org/klafleur)
+
+
 [bl.ocks.org/klafleur/MarcusGilmore(3)](https://bl.ocks.org/klafleur/c5c33106f2f11b145707a14978ecf920)
+
 [bl.ocks.org/klafleur/justinBrown(8)] (https://bl.ocks.org/klafleur/9fadd7cf669bd58f5159de5abc45b879)
+
 [bl.ocks.org/klafleur/AaronParks(17)](https://bl.ocks.org/klafleur/7f3d4bca865c20af71d6297c6aea0c25)
+
 [bl.ocks.org/klafleur/HarishRaghavan(24)](https://bl.ocks.org/klafleur/f3e0a8fde16e63791b6fe7fdfe1b1fa0)
 
 ### Screenshots
